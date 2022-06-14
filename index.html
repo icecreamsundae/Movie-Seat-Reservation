@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./main.css">
+  <script defer src="./main.js"></script>
+  <title>movie seat reservation</title>
+</head> 
+<body>
+  <h1>Movie</h1>
+  <div>
+    <h4>인원 선택</h4>
+    <ul>
+      <li>성인
+        <input class="btn-minus" type="button" value="-" onclick="numberOfPeopleHandler('minus')">
+        <span class="selected-num">0</span>
+        <input class="btn-plus" type="button" value="+" onclick="numberOfPeopleHandler('plus')">
+      </li>
+      <li>청소년</li>
+    </ul>
+    <button>좌석 선택</button>
+  </div>
+  <div class="seat">
+
+  </div>
+</body>
+</html>
