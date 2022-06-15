@@ -8,14 +8,18 @@ privateSeatBtn.classList = 'private';
 seat.append(privateSeatBtn);
 
 function numberOfPeopleHandler(type) {
-  let selectedResult =  selectedNum.value;
-  console.log(selectedResult);
-  if(type == 'plus') {
-    console.log('플러스')
-    selectedNum.innerText = selectedNum +1;
+  let selectedResult = parseInt(selectedNum.innerText);
+
+  if(type === 'plus') {
+    selectedResult ++;
+    if(selectedResult === 21) {
+      alert('최대 20명까지 예매가 가능합니다.');
+    }
   } else if (type == 'minus') {
-    console.log('마이너스')
+    selectedResult --;
+    
   }
+  selectedNum.innerText = selectedResult;
 }
 
 
