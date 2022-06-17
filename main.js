@@ -18,9 +18,14 @@ function numberOfPeopleHandler(type) {
     if(selectedResult === 21) {
       alert('최대 20명까지 예매가 가능합니다.');
     }
-  } else if (type == 'minus') {
+  } else if (type === 'minus') {
     selectedResult --;
-    // 0인 상태에서 - 누르면 0 유지하기, 지금은 -1로 내려감
+
+    // 0인 상태에서 - 누르면 0 유지하기
+    if(type === 'minus' && selectedResult) {  // 수정할 것 : 6일때 -누르면 바로 0으로 바뀜
+      selectedResult = 0;
+    }
+
   }
   selectedNum.innerText = selectedResult;
 
