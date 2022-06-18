@@ -22,8 +22,10 @@ function numberOfPeopleHandler(type) {
   } else if (type === 'minus') {
     selectedResult --;
 
-    // 0인 상태에서 - 누르면 0 유지하기
-    if(type === 'minus' && selectedResult) {  // 수정할 것 : 6일때 -누르면 바로 0으로 바뀜
+    if(type === 'minus' && selectedResult > 0) { //0초과인 상태에서 -누르면 1씩 작아지기
+      console.log(selectedResult)
+      selectedResult-1;
+    } else if(type === 'minus' && selectedResult) { // 0인 상태에서 -누르면 0유지
       selectedResult = 0;
     }
 
