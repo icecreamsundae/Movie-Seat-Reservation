@@ -15,8 +15,9 @@ function numberOfPeopleHandler(type) {
   if(type === 'plus') {
     selectedResult ++;
     
-    if(selectedResult === 21) {
+    if(selectedResult > 20) {
       alert('최대 20명까지 예매가 가능합니다.');
+      selectedResult = 20;
     }
   } else if (type === 'minus') {
     selectedResult --;
@@ -31,6 +32,8 @@ function numberOfPeopleHandler(type) {
 
   btnSelectedSeat.addEventListener('click', () => { // 인원을 선택해야지 event 실행
     divEl.classList.add('hidden');
+    const h4El = seat.querySelector('h4');
+    h4El.innerText = `${selectedResult}명의 자리를 선택하세요 `;
   });
 
 }
