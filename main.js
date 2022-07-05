@@ -4,14 +4,12 @@ const btnPlus = document.querySelector('.btn-plus');
 const selectedNum = document.querySelector('.selected-num');
 const btnSelectedSeat = document.querySelector('.selected-seat');
 
-const seat = document.querySelector('.seat');
-const privateSeatBtn = document.createElement('button');
-privateSeatBtn.classList = 'private';
-seat.append(privateSeatBtn);
+const seat = document.querySelector('#seat');
+
+let selectedResult = parseInt(selectedNum.innerText);
+
 
 function numberOfPeopleHandler(type) {
-  let selectedResult = parseInt(selectedNum.innerText);
-
   if(type === 'plus') {
     selectedResult ++;
     
@@ -31,17 +29,37 @@ function numberOfPeopleHandler(type) {
 
   }
   selectedNum.innerText = selectedResult;
+}
 
-  btnSelectedSeat.addEventListener('click', () => { // 인원을 선택해야지 event 실행
+function numberOfPeolpleChk() {
+  if(selectedResult === 0) {
+    alert('인원수를 선택하세요');      
+  } else {
     divEl.classList.add('hidden');
-    const h4El = seat.querySelector('h4');
-    h4El.innerText = `${selectedResult}명의 자리를 선택하세요 `;
-  });
+    const textEl = seat.querySelector('div');
+    textEl.innerText = `${selectedResult}명의 자리를 선택하세요. `;
+    seatArrange();
+
+  }  
+  
+}
+
+function seatArrange() { // 가로 4 : 6 : 4 , 세로 10
+  const ulEl = seat.querySelector('ul');
+  for(let i=0; i<140; i++) {
+    const privateSeatBtn = document.createElement('button');
+    privateSeatBtn.classList = 'private';
+    const liEl = document.createElement('li');
+    ulEl.append(liEl);
+    liEl.append(privateSeatBtn);
+    privateSeatBtn.innerText = `${i+1}`;
+    console.log(liEl);
+
+  }
 
 }
 
-// function selectedSeatHandler() {
 
-// }
+btnSelectedSeat.addEventListener('click', numberOfPeolpleChk);
 
 numberOfPeopleHandler();
