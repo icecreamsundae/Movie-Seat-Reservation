@@ -7,10 +7,8 @@
 ul {
   justify-content: center;
   display: grid;
-  /* grid-template-columns : 1fr 1fr 1fr 1fr 1fr 1fr ;
-   */
-   grid-template-columns: repeat(auto-fill, minmax(7%, auto));
-   justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(7%, auto));
+  justify-items: center;
 
 
 }
@@ -18,7 +16,11 @@ li {
  
 }
 button {
-  /* display: flex;
-  flex-direction: column; */
+  background-color: skyblue;
+
+}
+
+.private {
+  background-color: blanchedalmond;
 
 }

@@ -48,11 +48,14 @@ function seatArrange() { // 가로 4 : 6 : 4 , 세로 10
   const ulEl = seat.querySelector('ul');
   for(let i=0; i<140; i++) {
     const privateSeatBtn = document.createElement('button');
-    privateSeatBtn.classList = 'private';
+    privateSeatBtn.classList = `private${[i+1]}`;
     const liEl = document.createElement('li');
     ulEl.append(liEl);
     liEl.append(privateSeatBtn);
     privateSeatBtn.innerText = `${i+1}`;
+    privateSeatBtn.addEventListener('click', ()=>{
+      privateSeatBtn.classList.toggle('private');
+    });
     console.log(liEl);
 
   }
