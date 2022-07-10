@@ -4,25 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
   <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./seat.css">
+
+  
   <script defer src="./main.js"></script>
+  
   <title>movie seat reservation</title>
 </head> 
 <body>
-  <h1>Movie</h1>
   <div class="movie-seat-reservation">
+    <h1>Movie</h1>
     <h4>인원 선택</h4>
-    <ul>
-      <li>인원 수
-        <input class="btn-minus" type="button" value="-" onclick="numberOfPeopleHandler('minus')">
-        <span class="selected-num">0</span>
-        <input class="btn-plus" type="button" value="+" onclick="numberOfPeopleHandler('plus')">
-      </li>
-    </ul>
+    <div>
+      <input class="btn-minus" type="button" value="-" onclick="numberOfPeopleHandler('minus')">
+      <span class="selected-num">0</span>
+      <input class="btn-plus" type="button" value="+" onclick="numberOfPeopleHandler('plus')">
+    </div>
     <button class="selected-seat">좌석 선택하기</button>
+
   </div>
+
   <div id="seat">
     <div></div>
+    <div id="screen" class="hidden">screen</div>
     <ul></ul>
   </div>
 </body>

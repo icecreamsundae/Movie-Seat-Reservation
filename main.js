@@ -5,9 +5,10 @@ const selectedNum = document.querySelector('.selected-num');
 const btnSelectedSeat = document.querySelector('.selected-seat');
 
 const seat = document.querySelector('#seat');
+const screen = document.querySelector('#screen');
 
 let selectedResult = parseInt(selectedNum.innerText);
-
+let arrResult = [];
 
 function numberOfPeopleHandler(type) {
   if(type === 'plus') {
@@ -31,11 +32,13 @@ function numberOfPeopleHandler(type) {
   selectedNum.innerText = selectedResult;
 }
 
+
 function numberOfPeolpleChk() {
   if(selectedResult === 0) {
     alert('인원수를 선택하세요');      
   } else {
-    divEl.classList.add('hidden');
+    divEl.style.display = 'none';
+    screen.style.display = 'flex';
     const textEl = seat.querySelector('div');
     textEl.innerText = `${selectedResult}명의 자리를 선택하세요. `;
     seatArrange();
@@ -45,6 +48,8 @@ function numberOfPeolpleChk() {
 }
 
 function seatArrange() { // 가로 4 : 6 : 4 , 세로 10
+  arrResult = [selectedResult];
+
   const ulEl = seat.querySelector('ul');
   for(let i=0; i<140; i++) {
     const privateSeatBtn = document.createElement('button');
@@ -55,10 +60,22 @@ function seatArrange() { // 가로 4 : 6 : 4 , 세로 10
     privateSeatBtn.innerText = `${i+1}`;
     privateSeatBtn.addEventListener('click', ()=>{
       privateSeatBtn.classList.toggle('private');
+      console.log(privateSeatBtn.classList.length)
+      // if(selectedResult) {
+      //   console.log(typeof selectedResult)
+      //   console.log(typeof privateSeatBtn.classList.length)
+      //   console.log('실패')
+
+      // } else {
+      //   console.log('예매성공')
+
+      // }
     });
     console.log(liEl);
 
   }
+
+  console.log(arrResult);
 
 }
 
