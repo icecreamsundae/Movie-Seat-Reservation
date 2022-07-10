@@ -1,26 +1,89 @@
+/*common*/
 .hidden {
   display: none;
 }
-#seat {
-
-}
-ul {
-  justify-content: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(7%, auto));
-  justify-items: center;
-
-
-}
-li {
- 
-}
 button {
-  background-color: skyblue;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+input {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+body {
+}
+.movie-seat-reservation {
+  /* border: 1px solid red; */
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.movie-seat-reservation h1 {
+  font-size: 22px;
+  font-weight: bold;
+  position: absolute;
+  top: 90px;
+  bottom: 0;
+}
+.movie-seat-reservation h4 {
+  /* width: 100px;
+  height: 80px; */
+  font-size: 17px;
+  position: absolute;
+  top: 180px;
+  bottom: 0;
+}
+.movie-seat-reservation div {
+  width: 210px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(183,194,156, .3);
+}
+.movie-seat-reservation div .btn-minus {
+  background-color: rgb(183,194,156, .3);
+  border-radius: 50%;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  margin-left: 30px;
+}
+.movie-seat-reservation div .btn-minus:hover,
+.movie-seat-reservation div .btn-plus:hover {
+  background-color: rgb(183,194,156);
+}
+
+.movie-seat-reservation div .selected-num {
+  margin: 0 20px 0;
+  font-size: 20px;
+}
+.movie-seat-reservation div .btn-plus {
+  background-color: rgb(183,194,156, .3);
+  border-radius: 50%;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  margin-right: 30px;
+
+}
+.movie-seat-reservation .selected-seat {
+  width: 210px;
+  height: 50px;
+  position: absolute;
+  /* top: 0; */
+  bottom: 140px;
+  background-color: rgb(183,194,156, .3);
+}
+.movie-seat-reservation .selected-seat:hover {
+  background-color: rgb(203,212,185);
 
 }
 
-.private {
-  background-color: blanchedalmond;
-
-}
