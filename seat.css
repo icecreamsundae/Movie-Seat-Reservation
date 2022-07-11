@@ -1,0 +1,33 @@
+#seat {
+  width: 700px;
+}
+#seat .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+#seat #screen {
+  background-color: thistle;
+  /* display: flex;  main.js에서*/
+  justify-content: center;
+  align-items: center;
+}
+#seat ul {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7%, auto));
+  justify-items: center;
+
+}
+#seat ul li {
+
+
+}
+#seat ul li button {
+
+}
+#seat ul li .private {
+  background-color: blanchedalmond;
+}
+
+
