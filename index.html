@@ -15,22 +15,25 @@
   <title>movie seat reservation</title>
 </head> 
 <body>
-  <div class="movie-seat-reservation">
-    <h1>Movie</h1>
-    <h4>인원 선택</h4>
-    <div>
-      <input class="btn-minus" type="button" value="-" onclick="numberOfPeopleHandler('minus')">
-      <span class="selected-num">0</span>
-      <input class="btn-plus" type="button" value="+" onclick="numberOfPeopleHandler('plus')">
+  <div id="container">
+    <div class="movie-seat-reservation">
+      <h1>Movie</h1>
+      <h4>인원 선택</h4>
+      <div>
+        <input class="btn-minus" type="button" value="-" onclick="numberOfPeopleHandler('minus')">
+        <span class="selected-num">0</span>
+        <input class="btn-plus" type="button" value="+" onclick="numberOfPeopleHandler('plus')">
+      </div>
+      <button class="selected-seat">좌석 선택하기</button>
+
     </div>
-    <button class="selected-seat">좌석 선택하기</button>
 
-  </div>
-
-  <div id="seat">
-    <div class="title"></div>
-    <div id="screen" class="hidden">screen</div>
-    <ul></ul>
+    <div id="seat">
+      <div class="title"></div>
+      <div id="screen" class="hidden">screen</div>
+      <ul></ul>
+      <button class="btn-done hidden">완료</button>
+    </div>
   </div>
 </body>
 </html>
