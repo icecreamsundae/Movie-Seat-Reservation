@@ -12,11 +12,9 @@ input {
   background-color: #fff;
   cursor: pointer;
 }
-body {
-}
 .movie-seat-reservation {
   /* border: 1px solid red; */
-  width: 500px;
+  width: 1200px;
   height: 500px;
   margin: 0 auto;
   display: flex;

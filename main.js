@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const container = document.querySelector('#container');
 const divEl = document.querySelector('.movie-seat-reservation');
 const btnMinus = document.querySelector('.btn-minus');
@@ -8,11 +9,17 @@ const btnSelectedSeat = document.querySelector('.selected-seat');
 const seat = document.querySelector('#seat');
 const screen = document.querySelector('#screen');
 const textEl = seat.querySelector('.title');
+const ulEl = seat.querySelector('ul');
 const doneBtn = document.querySelector('.btn-done');
 
 let selectedResult = parseInt(selectedNum.innerText);
 let arrResult = [];
 let arrClassName = [];
+
+const CLASSNAME_HIDDEN = 'hidden';
+const CLASSNAME_PRIVATE = 'private';
+const STLYE_FLEX ='flex';
+const STLYE_NONE ='none';
 
 
 
@@ -43,10 +50,17 @@ function numberOfPeolpleChk() {
   if(selectedResult === 0) {
     alert('인원수를 선택하세요');      
   } else {
-    divEl.style.display = 'none';
-    screen.style.display = 'flex';
+    divEl.style.display = STLYE_NONE;
+    screen.style.display = STLYE_FLEX;
     textEl.innerText = `${selectedResult}명의 자리를 선택하세요. `;
-    doneBtn.classList.remove('hidden');
+    doneBtn.classList.remove(CLASSNAME_HIDDEN);
+    container.classList.remove(CLASSNAME_HIDDEN);
+    seat.classList.remove(CLASSNAME_HIDDEN);
+    textEl.classList.remove(CLASSNAME_HIDDEN);
+    ulEl.classList.remove(CLASSNAME_HIDDEN);
+    // ulEl.style.display = 'grid';
+    // seat.style.display = 'felx';
+    container.style.display = STLYE_FLEX;
 
     seatArrange();
   }  
@@ -54,21 +68,19 @@ function numberOfPeolpleChk() {
 }
 
 function seatArrange() { // 가로 4 : 6 : 4 , 세로 10
-  const ulEl = seat.querySelector('ul');
-
   for(let i=0; i<140; i++) {
     const privateSeatBtn = document.createElement('button');
-    privateSeatBtn.classList = `private${[i+1]}`;
+    privateSeatBtn.classList = `${CLASSNAME_PRIVATE}${[i+1]}`;
     const liEl = document.createElement('li');
     ulEl.append(liEl);
     liEl.append(privateSeatBtn);
     privateSeatBtn.innerText = `${i+1}`;
     privateSeatBtn.addEventListener('click', ()=>{
-      if(privateSeatBtn.classList.toggle('private')) {
+      if(privateSeatBtn.classList.toggle(CLASSNAME_PRIVATE)) {
         arrClassName.push(privateSeatBtn.classList);
         // console.log('arr', arrClassName);
-      }else if(privateSeatBtn.classList !== 'private') {
-        privateSeatBtn.classList.remove('private');
+      }else if(privateSeatBtn.classList !== CLASSNAME_PRIVATE) {
+        privateSeatBtn.classList.remove(CLASSNAME_PRIVATE);
         console.log(DOMTokenList)
         arrClassName.pop(DOMTokenList);
         console.log('삭제', arrClassName)
@@ -77,19 +89,19 @@ function seatArrange() { // 가로 4 : 6 : 4 , 세로 10
   }
   doneBtn.addEventListener('click', ()=>{
     const notice = document.createElement('div');
-    container.append(notice);
-    
+    notice.classList.add('notice')
+    body.append(notice);
     const regex = /[^0-9]/g;
     let seatNum = [];
     seatNum = String(arrClassName).replace(regex, '');
     if(arrResult.length == arrClassName.length) {
-      seat.classList.add('hidden');
-      textEl.classList.add('hidden');
+      container.classList.add(CLASSNAME_HIDDEN);
+      container.style.display = STLYE_NONE;
       console.log(seatNum);
-      notice.innerText = `${seatNum}의 자리를 예매했습니다.`;
+      notice.innerHTML = `<span>${seatNum}</span>번의 자리를 예매했습니다.`
       
     } else {
-      alert('인원 수에 맞게 자리를 선택하세요!')
+      alert('인원 수에 맞게 자리를 선택하세요!');
     }
   });
   
